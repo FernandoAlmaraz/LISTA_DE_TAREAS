@@ -17,6 +17,7 @@
     justify-content: space-between;
     padding: 10px;
     font-size: 1.6em;
+    flex-wrap: wrap;
 }
 .iconsContainer{
     display: flex;
@@ -26,3 +27,37 @@
         cursor: pointer;
     }
 }
+.editForm{
+
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border: 2px solid #f3f3f3;
+    width: 100%;
+
+}
+.editInput{
+    width: 100%;
+    padding: 8px;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+.saveButton, .cancelButton{
+    padding: 5px 10px;
+    border:  none;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.saveButton{
+    background-color: #28a745;
+}
+.cancelButton{
+    background-color: #9a4220;
+}
+
+
+
+

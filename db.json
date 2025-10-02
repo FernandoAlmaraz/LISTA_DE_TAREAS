@@ -2,7 +2,7 @@
   "notas": [
     {
       "id": "1",
-      "text": "Aprender React",
+      "text": "Nota editada",
       "completed": true
     },
     {
@@ -28,6 +28,11 @@
     {
       "id": "7",
       "text": "Hacer Apps Grandes",
+      "completed": false
+    },
+    {
+      "id": "ce50",
+      "text": "adicion de nueva nota",
       "completed": false
     }
   ]

@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import styles from './todoApp.module.css'
 import TodoForm from "./todoForm/TodoForm";
 import { SquarePen, Trash } from "lucide-react";
-
+import EditNoteForm from "./editeNoteForm/EditNoteForm";
 function TodoApp(){
-    const [ notes, setNotes ] = useState([])
+    const [ notes, setNotes ] = useState([]);
+    const [noteEditingId, setNoteEditingId] = useState(null);
     useEffect(()=>{
         const fetchData = async () => {
             try {
@@ -43,6 +44,15 @@ function TodoApp(){
         .catch((error)=> console.error(error));
     };
 
+    const UpdateNote=(noteUpdated) => {
+       setNotes(
+            notes.map((note)=>{
+                return note.id === noteUpdated.id ? noteUpdated : note;
+         })
+        );
+    };
+
+
     return (
         <>
            <h1  className={styles.titulo} > Notas</h1>
@@ -56,9 +66,20 @@ function TodoApp(){
                             {note.text} {note.completed ? "✅" : "❌" }
                          </span>
                         <div className={styles.iconsContainer}>
-                            <SquarePen size={26} />
+                            <SquarePen size={26}  onClick={()=> setNoteEditingId(note.id)} />
                             <Trash  onClick={()=>deleteNote(note.id)}  size={26} />
                         </div>
+                     {
+                        noteEditingId === note.id && (
+                            <EditNoteForm
+                                note={note}
+                                onEditNote ={UpdateNote}
+                                onCancel = {()=> setNoteEditingId(null)}
+                            
+                            />
+                        )
+                     }
+
                      </li> ))}
            </ul>
         </>
