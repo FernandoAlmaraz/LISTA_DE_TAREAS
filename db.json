@@ -13,27 +13,27 @@
     {
       "id": "4",
       "text": "Leer libros",
-      "completed": false
+      "completed": true
     },
     {
       "id": "5",
       "text": "Hacer Apps paquenias",
-      "completed": false
+      "completed": true
     },
     {
       "id": "6",
       "text": "Hacer Apps Medianas",
-      "completed": false
+      "completed": true
     },
     {
       "id": "7",
       "text": "Hacer Apps Grandes",
-      "completed": false
+      "completed": true
     },
     {
       "id": "ce50",
       "text": "adicion de nueva nota",
-      "completed": false
+      "completed": true
     }
   ]
 }

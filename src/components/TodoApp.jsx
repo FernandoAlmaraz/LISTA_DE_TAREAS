@@ -51,6 +51,26 @@ function TodoApp(){
          })
         );
     };
+    const checkAsCompleted = async(noteId)=> {
+        try {
+            const note = notes.find(note => note.id === noteId);
+            const response = await fetch(`http://localhost:3000/notas/${noteId}`,{
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application-json",
+                },
+                body: JSON.stringify({ completed: !note.completed })
+            })
+            if (!response.ok) {
+            throw new Error(`Error al actualizar el estado de la nota`);
+            
+             }
+            const updatedStatusNote = await response.json()
+            setNotes(notes.map(note => note.id === noteId ? updatedStatusNote: note))
+        } catch (error) {
+            
+        }
+    }
 
 
     return (
@@ -66,6 +86,9 @@ function TodoApp(){
                             {note.text} {note.completed ? "✅" : "❌" }
                          </span>
                         <div className={styles.iconsContainer}>
+                            <button onClick={() => checkAsCompleted(note.id) } >
+                                {note.completed ? "Desmarcar": "Completar"}
+                            </button>
                             <SquarePen size={26}  onClick={()=> setNoteEditingId(note.id)} />
                             <Trash  onClick={()=>deleteNote(note.id)}  size={26} />
                         </div>
