@@ -27,7 +27,21 @@ function TodoApp(){
     const addNote = (newNote)=>{
         setNotes([...notes, newNote])
     }
-
+    const deleteNote=(id) => {
+        setNotes(notes.filter(note => note.id !== id));
+        fetch(`http://localhost:3000/notas/${id}`,{
+            method:"DELETE",
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(
+                    `Error al eliminar la nota: ${response.status}`
+                );
+            }
+            console.log("Nota eliminana correctamente");
+        })
+        .catch((error)=> console.error(error));
+    };
 
     return (
         <>
@@ -42,7 +56,8 @@ function TodoApp(){
                             {note.text} {note.completed ? "✅" : "❌" }
                          </span>
                         <div className={styles.iconsContainer}>
-                            <SquarePen size={16} /><Trash size={16} />
+                            <SquarePen size={26} />
+                            <Trash  onClick={()=>deleteNote(note.id)}  size={26} />
                         </div>
                      </li> ))}
            </ul>

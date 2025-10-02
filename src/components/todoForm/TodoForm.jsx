@@ -1,5 +1,6 @@
 import { useState } from "react"
-
+import styles from "./todoForm.module.css"
+import { CirclePlus } from "lucide-react";
 function TodoForm({ onAddNote }) {
 
     const [textNote, setTextNote] = useState("")
@@ -36,7 +37,7 @@ function TodoForm({ onAddNote }) {
     //     setTextNote(e.target.value)
     // }
     return(
-        <div>
+        <div className={styles.formContainer}>
             <h2> ToDo Form</h2>
             <form onSubmit={handleSubmit}>
                 <input type="text" 
@@ -45,7 +46,7 @@ function TodoForm({ onAddNote }) {
                        value={textNote}
                        onChange={(event)=> setTextNote(event.target.value)}
                        />
-                <button type="submit"> ADD NEW NOTE </button>
+                <button type="submit"> <CirclePlus size={20} /> Add Note </button>
             </form>
         </div>
     )
