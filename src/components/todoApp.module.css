@@ -14,5 +14,14 @@
 .noteItem{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 10px;
+}
+.iconsContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    svg{
+        cursor: pointer;
+    }
 }

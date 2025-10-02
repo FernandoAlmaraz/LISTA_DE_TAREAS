@@ -1,0 +1,44 @@
+{
+  "notas": [
+    {
+      "id": "1",
+      "text": "Aprender React",
+      "completed": true
+    },
+    {
+      "id": "3",
+      "text": "Hacer ejercicios",
+      "completed": true
+    },
+    {
+      "id": "4",
+      "text": "Leer libros",
+      "completed": false
+    },
+    {
+      "id": "5",
+      "text": "Hacer Apps paquenias",
+      "completed": false
+    },
+    {
+      "id": "6",
+      "text": "Hacer Apps Medianas",
+      "completed": false
+    },
+    {
+      "id": "7",
+      "text": "Hacer Apps Grandes",
+      "completed": false
+    },
+    {
+      "id": "b913",
+      "text": "ver video",
+      "completed": false
+    },
+    {
+      "id": "83f9",
+      "text": "hoa",
+      "completed": false
+    }
+  ]
+}

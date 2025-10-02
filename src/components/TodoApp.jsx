@@ -1,18 +1,50 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from './todoApp.module.css'
+import TodoForm from "./todoForm/TodoForm";
+import { SquarePen, Trash } from "lucide-react";
 
 function TodoApp(){
-    const notass = [
-                        {id:crypto.randomUUID(), text:'Soy la nota 1'},
-                        {id:crypto.randomUUID(), text:'Soy la nota 2'}
-                    ];
-    const [ notas, setNotas ] = useState(notass)
+    const [ notes, setNotes ] = useState([])
+    useEffect(()=>{
+        const fetchData = async () => {
+            try {
+                const response = await fetch("http://localhost:3000/notas")
+
+                if (!response.ok) {
+                    throw new Error(`Error Http: ${response.status}`);
+                }
+                const data = await response.json()
+                setNotes(data)
+            } catch(error) {
+                console.log(error)
+            }
+            
+        };
+        fetchData();
+    },[]);
     //map = retorna array
+
+    const addNote = (newNote)=>{
+        setNotes([...notes, newNote])
+    }
+
+
     return (
         <>
            <h1  className={styles.titulo} > Notas</h1>
+
+            <TodoForm onAddNote={addNote} />
+
            <ul className={styles.noteList}>
-                {notas.map(nota => <li className={styles.noteItem} key={nota.id}> {nota.text} </li> )}
+                {notes.map((note) => (
+                     <li className={styles.noteItem} key={note.id}> 
+                         <span>
+                            {note.text} {note.completed ? "✅" : "❌" }
+                         </span>
+                        <div className={styles.iconsContainer}>
+                            <SquarePen size={16} /><Trash size={16} />
+                        </div>
+                     </li> ))}
            </ul>
         </>
     );
