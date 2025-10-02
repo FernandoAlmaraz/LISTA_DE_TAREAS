@@ -1,0 +1,18 @@
+.titulo{
+    font-size: 3rem;
+    color: orange;
+    margin-bottom: 40px;
+    text-align: center ;
+}
+
+.noteList{
+    list-style-type: none;
+    padding: 20px;
+    margin: 0;
+}
+
+.noteItem{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}

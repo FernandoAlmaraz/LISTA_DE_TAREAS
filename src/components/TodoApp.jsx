@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import styles from './todoApp.module.css'
 
 function TodoApp(){
     const notass = [
@@ -10,9 +10,9 @@ function TodoApp(){
     //map = retorna array
     return (
         <>
-           <h1>Notas</h1>
-           <ul>
-                {notas.map(nota => <li key={nota.id}> {nota.text} </li> )}
+           <h1  className={styles.titulo} > Notas</h1>
+           <ul className={styles.noteList}>
+                {notas.map(nota => <li className={styles.noteItem} key={nota.id}> {nota.text} </li> )}
            </ul>
         </>
     );
